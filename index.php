@@ -10,6 +10,9 @@
 <body>
 
   <a href="paginas/AlunoList.php">Aluno</a><br>
+  <a href="paginas/TreinoList.php">Treino</a><br>
+  <a href="paginas/ProdutoList.php">Produto</a><br>
+  <a href="paginas/DietaList.php">Dieta</a><br>
   
 
   <section class="container mt-5">

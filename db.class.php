@@ -95,7 +95,7 @@ class DB
     public function update($nome_tabela, $dados){
         
         $conn = $this->conn();
-        $sql = "UPDATE $nome_tabela SET nome=?, cpf=?, telefone=?
+        $sql = "UPDATE $nome_tabela SET nome=?, cpf=?, telefone=?, idade=?, objetivo_peso=?, exercicio=?, codigo=?, quantidade=?
                     WHERE id=? ";
         
         $st = $conn->prepare($sql);
@@ -105,6 +105,11 @@ class DB
             $dados['cpf'],
             $dados['telefone'],
             $dados['id'],
+            $dados['idade'],
+            $dados['objetivo_peso'],
+            $dados['exercicio'],
+            $dados['codigo'],
+            $dados['quantidade'],
         ]);
     }
 
@@ -132,6 +137,11 @@ class DB
         $st->execute(["%$valor%"]);
 
         return $st->fetchAll(PDO::FETCH_CLASS);
+    }
+
+     // Métodos específicos para a tabela treino
+    public function findTreino($id){
+        return $this->find("treino", $id);
     }
 
     public function login($nome_tabela, $dados){
